@@ -1,14 +1,14 @@
 // Package declarations.
 package com.opers.iv1350.view;
 
-import com.opers.iv1350.controller.Controller;
 // Import Declarations.
 import com.opers.iv1350.model.Model;
+import com.opers.iv1350.controller.Controller;
 
 public class View
 {
 
-    private Model model;
+    public Model model; //! Should this be public. Should I re-route this?
     private Controller controller;
     
     public View (Model model)
