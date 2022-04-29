@@ -4,8 +4,12 @@ package com.opers.iv1350.integration;
 // Import declarations.
 import com.opers.iv1350.dto.ItemDTO;
 
+import java.util.ArrayList;
+
 public class InventorySystem
 {
+
+    private ArrayList<itemIndex> inventory = new ArrayList<itemIndex>();
 
     /**
      * Wrapper class for the item, containing the item and its current inventory.
@@ -34,8 +38,14 @@ public class InventorySystem
         public int getBalance () { return balance; }
     }
     
+    /**
+     * Constructor for the InventorySystem object class.
+     */
     public InventorySystem ()
     {
+
+        ItemDTO item = new ItemDTO("1", "Prolog", 20.0f, 5, "The best programming language in the world");
+        inventory.add(new itemIndex(item, 1));
 
     }
 
@@ -46,8 +56,13 @@ public class InventorySystem
      * @param id The ID of the item.
      * @return ...
      */
-    public ItemDTO fetchItemData (int id)
+    public ItemDTO fetchItemData (String id)
     {
+        ItemDTO item = null;
+
+        for (itemIndex i : inventory)
+            if (i.item.getId() == id) return i.item;
+
         return null;
     }
 
@@ -58,7 +73,7 @@ public class InventorySystem
      * @param id The ID of the item which we want to update the inventory of.
      * @param quantity The quantity of which we may want to REDUCE the item inventory of.
      */
-    public void updateInventory (int id, int quantity)
+    public void updateInventory (String id, int quantity)
     {
 
     }
