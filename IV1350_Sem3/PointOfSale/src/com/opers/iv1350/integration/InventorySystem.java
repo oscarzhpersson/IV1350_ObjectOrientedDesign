@@ -58,8 +58,6 @@ public class InventorySystem
      */
     public ItemDTO fetchItemData (String id)
     {
-        ItemDTO item = null;
-
         for (itemIndex i : inventory)
             if (i.item.getId() == id) return i.item;
 
