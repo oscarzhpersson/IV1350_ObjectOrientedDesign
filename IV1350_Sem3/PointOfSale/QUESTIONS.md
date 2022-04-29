@@ -10,7 +10,11 @@
 
     Är import all okej? " .* ". De ska helst bort egentligen.
 
+    ______________________________________________________________________________________________________
+
     Is my wrapper for the item in InventorySystem alright?
+
+    In InventorySystem, what should updateInventory do if it has an insufficient balance?
 
 
 # Notes:
