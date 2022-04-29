@@ -1,7 +1,7 @@
 // Package declarations.
 package com.opers.iv1350.dto;
 
-public class itemDTO
+public class ItemDTO
 {
 
     private String id;
@@ -12,7 +12,7 @@ public class itemDTO
     
     /**
      * 
-     * Constructor for the itemDTO object.
+     * Constructor for the ItemDTO object.
      * 
      * @param id The ID of the item.
      * @param itemName The name of the item.
@@ -20,7 +20,7 @@ public class itemDTO
      * @param vat The VAT rate of the item.
      * @param description A short description of the item.
      */
-    public itemDTO (String id, String itemName, float price, int vat, String description)
+    public ItemDTO (String id, String itemName, float price, int vat, String description)
     {
         this.id = id;
         this.itemName = itemName;

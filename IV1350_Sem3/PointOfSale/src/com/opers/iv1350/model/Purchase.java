@@ -3,7 +3,7 @@ package com.opers.iv1350.model;
 
 // Import declarations.
 import com.opers.iv1350.model.Payment;
-import com.opers.iv1350.dto.itemDTO;
+import com.opers.iv1350.dto.ItemDTO;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class Purchase
     private Receipt receipt;
     private LocalTime timeOfSale;
 
-    private ArrayList<itemDTO> purchasedItems = new ArrayList<itemDTO>();
+    private ArrayList<ItemDTO> purchasedItems = new ArrayList<ItemDTO>();
     
     /**
      * Constructor for the Purchase object class.
@@ -40,7 +40,7 @@ public class Purchase
      * @param item The item to add the properties from.
      * @param quantity The amount of items to add to the purchase.
      */
-    public void updatePurchase (itemDTO item, int quantity)
+    public void updatePurchase (ItemDTO item, int quantity)
     {
         for (int i = 0; i < quantity; i++)
             purchasedItems.add(item);

@@ -2,7 +2,7 @@
 package com.opers.iv1350.integration;
 
 // Import declarations.
-import com.opers.iv1350.dto.itemDTO;
+import com.opers.iv1350.dto.ItemDTO;
 
 public class InventorySystem
 {
@@ -12,10 +12,10 @@ public class InventorySystem
      */
     private class itemIndex
     {
-        itemDTO item;
+        ItemDTO item;
         int balance;
 
-        public itemIndex (itemDTO item, int balance)
+        public itemIndex (ItemDTO item, int balance)
         {
             this.item = item;
             this.balance = balance;
@@ -25,7 +25,7 @@ public class InventorySystem
          * Getter function for the item.
          * @return The item in the form of an itemDTO.
          */
-        public itemDTO getItem () { return item; }
+        public ItemDTO getItem () { return item; }
 
         /**
          * Getter function for the item inventory balance.
@@ -46,7 +46,7 @@ public class InventorySystem
      * @param id The ID of the item.
      * @return ...
      */
-    public itemDTO fetchItemData (int id)
+    public ItemDTO fetchItemData (int id)
     {
         return null;
     }
@@ -60,6 +60,6 @@ public class InventorySystem
      */
     public void updateInventory (int id, int quantity)
     {
-        
+
     }
 }
