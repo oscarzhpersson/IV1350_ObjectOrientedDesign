@@ -75,7 +75,8 @@ public class InventorySystem
 
         if (index == -1) return;
 
-        inventory.get(index).balance -= quantity;
+        // TODO: Add error handling for when balance is below 0 or is 0. Within first part of ternary.
+        inventory.get(index).balance = ( inventory.get(index).balance - quantity < 0 ? 0 : inventory.get(index).balance - quantity );
     }
 
     /**
