@@ -9,14 +9,10 @@ import com.opers.iv1350.view.View;
 
 public class Controller
 {
-    
-    private View view;
-    private Model model;
 
-    public Controller (View view)
+    public Controller ()
     {
-        this.view = view;
-        this.model = view.model;
+        
     }
 
     public void startSale ()

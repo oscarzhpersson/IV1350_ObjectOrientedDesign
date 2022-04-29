@@ -8,13 +8,10 @@ import com.opers.iv1350.controller.Controller;
 public class View
 {
 
-    public Model model; //! Should this be public. Should I re-route this?
     private Controller controller;
     
-    public View (Model model)
+    public View ()
     {
-        this.model = model;
-
         controller = new Controller();
     }
 
