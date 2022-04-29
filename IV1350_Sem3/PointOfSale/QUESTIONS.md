@@ -10,7 +10,7 @@
 
     Är import all okej? " .* ". De ska helst bort egentligen.
 
-    Är det ok
+    Is my wrapper for the item in InventorySystem alright?
 
 
 # Notes:
@@ -22,6 +22,8 @@
     Model ska inte vara sin egen klass. Det ska vara ett paket, inte sin egen klass. Vyn ska aldrig direkt anropa modellen. De ska alltid gå genom controller.
 
     Man får gå ifrån diagrammet i viss mån när det är rimligt.
+
+    Had to add quantity to updatePurchase() in Purchase.
 
 
 
