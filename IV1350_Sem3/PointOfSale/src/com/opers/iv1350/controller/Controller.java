@@ -36,8 +36,11 @@ public class Controller
 
     /**
      * 
-     * @param id
-     * @param quantity
+     * Fetches the information of the scanned item.
+     * Updates the balance of the item in the inventory.
+     * 
+     * @param id The ID of the item.
+     * @param quantity The quantity of items which are to be entered.
      */
     public void enteritem(int id, int quantity)
     {
@@ -55,7 +58,7 @@ public class Controller
 
         // TODO: Check if purchase exists. Otherwise throw an error.
 
-        purchase.updatePurchase(item);
+        purchase.updatePurchase(item, quantity);
 
         // Feedback to the view.
         // TODO: Should this be here?
