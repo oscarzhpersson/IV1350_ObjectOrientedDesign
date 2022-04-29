@@ -29,7 +29,7 @@ public class Purchase
     /**
      * Updates the internal representation of the time of the sale.
      */
-    public void setTimeOfSale () // ! Should maybe be private?
+    private void setTimeOfSale ()
     {
         timeOfSale = LocalTime.now();
     }
