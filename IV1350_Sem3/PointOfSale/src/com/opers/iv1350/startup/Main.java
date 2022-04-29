@@ -2,7 +2,6 @@
 package com.opers.iv1350.startup;
 
 // Import declarations.
-import com.opers.iv1350.model.Model;
 import com.opers.iv1350.view.View;
 
 /**
