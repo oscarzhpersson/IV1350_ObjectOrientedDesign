@@ -10,9 +10,11 @@ import com.opers.iv1350.view.View;
 public class Controller
 {
 
+    
+
     public Controller ()
     {
-        
+
     }
 
     public void startSale ()
