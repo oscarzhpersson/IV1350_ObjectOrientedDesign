@@ -6,6 +6,33 @@ import com.opers.iv1350.dto.itemDTO;
 
 public class InventorySystem
 {
+
+    /**
+     * Wrapper class for the item, containing the item and its current inventory.
+     */
+    private class itemIndex
+    {
+        itemDTO item;
+        int balance;
+
+        public itemIndex (itemDTO item, int balance)
+        {
+            this.item = item;
+            this.balance = balance;
+        }
+
+        /**
+         * Getter function for the item.
+         * @return The item in the form of an itemDTO.
+         */
+        public itemDTO getItem () { return item; }
+
+        /**
+         * Getter function for the item inventory balance.
+         * @return The inventory balance of the item.
+         */
+        public int getBalance () { return balance; }
+    }
     
     public InventorySystem ()
     {
@@ -33,7 +60,6 @@ public class InventorySystem
      */
     public void updateInventory (int id, int quantity)
     {
-
+        
     }
-
 }
