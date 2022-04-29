@@ -36,6 +36,12 @@ public class InventorySystem
          * @return The inventory balance of the item.
          */
         public int getBalance () { return balance; }
+
+        /**
+         * Setter function for the item inventory balance.
+         * @param value The new value for the balance of the inventory.
+         */
+        public void setBalance (int value) { balance = value; }
     }
     
     /**
@@ -59,7 +65,7 @@ public class InventorySystem
     public ItemDTO fetchItemData (String id)
     {
         int index = getItemIndex(id);
-        return index == -1 ? null : inventory.get(index).item;
+        return index == -1 ? null : inventory.get(index).getItem();
     }
 
     /**
@@ -76,7 +82,7 @@ public class InventorySystem
         if (index == -1) return;
 
         // TODO: Add error handling for when balance is below 0 or is 0. Within first part of ternary.
-        inventory.get(index).balance = ( inventory.get(index).balance - quantity < 0 ? 0 : inventory.get(index).balance - quantity );
+        inventory.get(index).setBalance( ( inventory.get(index).getBalance() - quantity < 0 ? 0 : inventory.get(index).getBalance() - quantity ) );
     }
 
     /**
