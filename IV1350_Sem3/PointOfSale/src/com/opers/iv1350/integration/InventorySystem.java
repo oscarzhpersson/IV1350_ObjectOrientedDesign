@@ -54,14 +54,12 @@ public class InventorySystem
      * Fetches an item from the inventory system with a corresponding ID.
      * 
      * @param id The ID of the item.
-     * @return ...
+     * @return The itemDTO of the corresponding item.
      */
     public ItemDTO fetchItemData (String id)
     {
-        for (itemIndex i : inventory)
-            if (i.item.getId() == id) return i.item;
-
-        return null;
+        int index = getItemIndex(id);
+        return index == -1 ? null : inventory.get(index).item;
     }
 
     /**
@@ -73,6 +71,24 @@ public class InventorySystem
      */
     public void updateInventory (String id, int quantity)
     {
+        int index = getItemIndex(id);
 
+        if (index == -1) return;
+
+        inventory.get(index).balance -= quantity;
     }
+
+    /**
+     * Fetches the item index of a specified item ID in inventory list.
+     * @param id The ID of the item.
+     * @return The index of the item in inventory list.
+     */
+    private int getItemIndex (String id)
+    {
+        for (itemIndex i : inventory)
+            if (i.item.getId() == id) return inventory.indexOf(i);
+
+        return -1;
+    }
+
 }
