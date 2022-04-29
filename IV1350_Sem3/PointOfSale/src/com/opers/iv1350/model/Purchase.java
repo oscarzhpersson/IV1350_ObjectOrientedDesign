@@ -5,15 +5,18 @@ package com.opers.iv1350.model;
 import com.opers.iv1350.model.Payment;
 import com.opers.iv1350.dto.itemDTO;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Purchase
 {
 
     private Receipt receipt;
     private LocalTime timeOfSale;
+
+    private ArrayList<itemDTO> purchasedItems = new ArrayList<itemDTO>();
     
     /**
-     * 
+     * Constructor for the Purchase object class.
      */
     public Purchase ()
     {
@@ -35,10 +38,14 @@ public class Purchase
      * Updates this purchase by adding the item from the argument to its collected values.
      * 
      * @param item The item to add the properties from.
+     * @param quantity The amount of items to add to the purchase.
      */
-    public void updatePurchase (itemDTO item)
+    public void updatePurchase (itemDTO item, int quantity)
     {
+        for (int i = 0; i < quantity; i++)
+            purchasedItems.add(item);
+
+        //TODO: Collect the rest of the information?
 
     }
-
 }
