@@ -19,6 +19,9 @@ public class Controller
     // Reference variables.
     private Purchase purchase;
 
+    /**
+     * Constructor for the Controller object. Sets the initial values.
+     */
     public Controller ()
     {
         inventorySystem = new InventorySystem();
@@ -32,6 +35,14 @@ public class Controller
     public void startSale ()
     {
         purchase = new Purchase();
+    }
+
+    /**
+     * Ends the sale, logging the information of the sale into the external accounting system.
+     */
+    public void endSale ()
+    {
+        accountingSystem.logSale(purchase);
     }
 
     /**
