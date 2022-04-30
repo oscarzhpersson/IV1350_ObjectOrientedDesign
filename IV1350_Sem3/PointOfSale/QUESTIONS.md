@@ -33,9 +33,13 @@
 
     Had to add quantity to updatePurchase() in Purchase.
 
+    I will omit the Payment object as it does not actually do anything.
+
 
 
 # Notes during progress:
 
     Removed model class from program.
     Removed view reference within controller.
+
+    registerPayment was changed to void and to register the amount instead, as it makes more sense.

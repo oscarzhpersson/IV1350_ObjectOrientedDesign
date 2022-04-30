@@ -2,7 +2,7 @@
 package com.opers.iv1350.model;
 
 // Import declarations.
-import com.opers.iv1350.model.Payment;
+import com.opers.iv1350.model.Receipt;
 import com.opers.iv1350.dto.ItemDTO;
 
 import java.time.LocalTime;
@@ -12,7 +12,10 @@ public class Purchase
 {
 
     private Receipt receipt;
+
+    // Values.
     private LocalTime timeOfSale;
+    private float change;
 
     private ArrayList<ItemDTO> purchasedItems = new ArrayList<ItemDTO>();
     
@@ -22,6 +25,7 @@ public class Purchase
     public Purchase ()
     {
         receipt = new Receipt();
+        change = 0.0f;
 
         setTimeOfSale();   
     }
@@ -52,18 +56,45 @@ public class Purchase
 
     /**
      * Calculates the total price within the purchasedItem list.
+     * 
+     * @param includeVat Should VAT be included in the total?
      * @return The running total of the items.
      */
-    private float calculateTotal()
+    private float calculateTotal (boolean includeVat)
     {
         float total = 0.0f;
 
         for (ItemDTO itemDTO : purchasedItems)
         {
-            total += itemDTO.getPrice();
+            total += itemDTO.getPrice() + itemDTO.getPrice() * ((itemDTO.getVat() / 100) * (includeVat ? 1 : 0));
         }
 
         return total;
+    }
+
+    /**
+     * 
+     * Registers a payment of the current open purchase.
+     * 
+     * @param amount The amount which was paid.
+     * @return The change or remaining balance needed to pay (if negative).
+     */
+    public void registerPayment(float amount)
+    {
+        float total = getTotal();
+
+        change = total - amount;
+    }
+
+    /**
+     * 
+     * Getter function for the total of the purchase including VAT.
+     * 
+     * @return The total cost of the purchase.
+     */
+    public float getTotal ()
+    {
+        return calculateTotal(true);
     }
 
     /**
@@ -73,6 +104,6 @@ public class Purchase
     @Override
     public String toString ()
     {
-        return String.format("Total: %f, Total VAT incl.: %f", calculateTotal());
+        return String.format("Total: %f, Total VAT incl.: %f", calculateTotal(false), calculateTotal(true));
     }
 }
