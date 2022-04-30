@@ -66,7 +66,7 @@ public class ItemDTO
     @Override
     public String toString()
     {
-        return String.format("Item: %s, Price: %s, VAT rate: %d", itemName, price, vat);
+        return String.format("Item: %s, Price: %s, VAT rate: %d, Description: %s", itemName, price, vat, description);
     }
 
 }
