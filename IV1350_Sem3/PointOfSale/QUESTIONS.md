@@ -16,6 +16,10 @@
 
     In InventorySystem, what should updateInventory do if it has an insufficient balance?
 
+    How does VAT work? Add answer to Purchase.java toString override.
+
+    Do I need to write a wrapper function for the purchase which keeps a balance for the items added instead of just adding them individually? If so, maybe break the existing class out instead.
+
 
 # Notes:
 

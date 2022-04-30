@@ -63,7 +63,7 @@ public class Controller
         // Feedback to the view.
         // TODO: Should this be here?
         System.out.println(item.toString());
-
+        System.out.println(purchase.toString());
     }
 
 }

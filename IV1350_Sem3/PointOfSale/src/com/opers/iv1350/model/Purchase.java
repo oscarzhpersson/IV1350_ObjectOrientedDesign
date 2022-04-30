@@ -49,4 +49,30 @@ public class Purchase
         //TODO: Collect the rest of the information?
 
     }
+
+    /**
+     * Calculates the total price within the purchasedItem list.
+     * @return The running total of the items.
+     */
+    private float calculateTotal()
+    {
+        float total = 0.0f;
+
+        for (ItemDTO itemDTO : purchasedItems)
+        {
+            total += itemDTO.getPrice();
+        }
+
+        return total;
+    }
+
+    /**
+     *  Override for the toString() function.
+     *  Prints the values of the Purchase object.
+     */
+    @Override
+    public String toString ()
+    {
+        return String.format("Total: %f, Total VAT incl.: %f", calculateTotal());
+    }
 }
