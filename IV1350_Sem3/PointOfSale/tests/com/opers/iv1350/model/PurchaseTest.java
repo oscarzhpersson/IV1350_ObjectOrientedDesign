@@ -56,7 +56,7 @@ public class PurchaseTest
     }
 
     /**
-     * Tests the function which registers a payent function and calculates change, registerPayment().
+     * Tests the function which registers a payment function and calculates change, registerPayment().
      */
     @Test
     public void testRegisterPayment_Invalid()
@@ -69,6 +69,29 @@ public class PurchaseTest
         String output = printoutBuffer.toString();
 
         assertTrue(output.contains("Payment is within an invalid numerical range"));
+    }
+
+    /**
+     * Tests the function updatePurchase() within Purchase with a valid input.
+     */
+    @Test
+    public void testUpdatePurchase_Valid()
+    {
+        ItemDTO item = inventory.fetchItemData("1");
+
+        purchase.updatePurchase(item, 1);
+    }
+
+    /**
+     * Tests the function updatePurchase() within Purchase with an invalid input.
+     */
+    @Test
+    public void testUpdatePurchase_Invalid()
+    {
+        purchase.updatePurchase(null, 1);
+
+        String output = printoutBuffer.toString();
+        assertTrue(output.contains("The object item can not be null"));
     }
 
 }
