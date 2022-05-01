@@ -46,6 +46,25 @@ public class Controller
     }
 
     /**
+     * Prints the associated receipts of the current purchase.
+     */
+    public void printReceipt()
+    {
+        printer.printReceipt(purchase.getReceipt());
+    }
+
+    /**
+     * 
+     * Registers a payment of the current open purchase.
+     * 
+     * @param amount The amount which was paid.
+     */
+    public void registerPayment(float amount)
+    {
+        purchase.registerPayment(amount);
+    }
+
+    /**
      * 
      * Fetches the information of the scanned item.
      * Updates the balance of the item in the inventory.

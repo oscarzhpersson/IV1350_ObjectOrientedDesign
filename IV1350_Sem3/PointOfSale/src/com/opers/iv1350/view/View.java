@@ -19,6 +19,11 @@ public class View
 
         controller.startSale();
         controller.enteritem("1", 1);
+
+        controller.registerPayment(50);
+
+        controller.printReceipt();
+        controller.endSale();
     }
 
 }

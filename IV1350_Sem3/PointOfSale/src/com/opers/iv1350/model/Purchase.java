@@ -77,7 +77,6 @@ public class Purchase
      * Registers a payment of the current open purchase.
      * 
      * @param amount The amount which was paid.
-     * @return The change or remaining balance needed to pay (if negative).
      */
     public void registerPayment(float amount)
     {
@@ -87,11 +86,12 @@ public class Purchase
     }
 
     /**
-     * Prints the associated receipts of the purchase.
+     * Getter function for the formatted receipt of the purchase.
      */
-    public void printReceipt ()
+    public String getReceipt ()
     {
-        System.out.println(receipt.toString());
+        receipt.setPurchase(this);
+        return receipt.toString();
     }
 
     /**
