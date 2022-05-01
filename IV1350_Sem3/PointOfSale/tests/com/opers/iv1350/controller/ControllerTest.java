@@ -9,6 +9,9 @@ import java.io.PrintStream;
 // Static import declarations.
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testing class for the Controller class.
+ */
 public class ControllerTest
 {
 
@@ -30,6 +33,9 @@ public class ControllerTest
         System.setOut(inMemSysOut);
     }
 
+    /**
+     * Tears down loose ends after testing execution.
+     */
     @AfterEach
     public void tearDown()
     {
