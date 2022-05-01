@@ -22,6 +22,8 @@
 
     Do I need to add a balance to the register? If so, can I just add it to the controller?
 
+    What do I throw if I can't throw exceptions...?
+
 
 # Notes:
 
