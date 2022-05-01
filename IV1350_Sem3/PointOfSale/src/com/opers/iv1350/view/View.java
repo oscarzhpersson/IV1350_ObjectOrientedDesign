@@ -19,12 +19,29 @@ public class View
     {
         controller = new Controller();
 
+        System.out.println("\n\n");
+        System.out.print("Starts the sale");
+        System.out.println("\n\n");
         controller.startSale();
+
+        System.out.println("\n\n");
+        System.out.print("An item has been scanned");
+        System.out.println("\n\n");
         controller.enteritem("1", 1);
 
+        System.out.println("\n\n");
+        System.out.print("A payment has been registered");
+        System.out.println("\n\n");
         controller.registerPayment(50);
 
+        System.out.println("\n\n");
+        System.out.print("Receipt is printed");
+        System.out.println("\n\n");
         controller.printReceipt();
+
+        System.out.println("\n\n");
+        System.out.print("Ends the sale");
+        System.out.println("\n\n");
         controller.endSale();
     }
 
