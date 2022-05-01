@@ -47,6 +47,6 @@ public class Receipt
             items += item.getItemName() + "\n";
         }
 
-        return String.format("*** RECEIPT *** \n\n Time of sale: %s \n Items: \n %s \n Total: %f \n Change: %f", purchaseOfReceipt.getTimeOfSale().toString(), items, purchaseOfReceipt.getTotal(), purchaseOfReceipt.getChange());
+        return String.format("*** RECEIPT *** \n\n Time of sale: %s \n Items: \n %s \n Total: €%.2f \n Change: €%.2f", purchaseOfReceipt.getTimeOfSale().toString(), items, purchaseOfReceipt.getTotal(), purchaseOfReceipt.getChange());
     }
 }
