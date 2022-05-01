@@ -3,7 +3,6 @@ package com.opers.iv1350.model;
 
 // Import declarations.
 import com.opers.iv1350.model.Purchase;
-import java.util.ArrayList;
 import com.opers.iv1350.dto.ItemDTO;
 
 /**
