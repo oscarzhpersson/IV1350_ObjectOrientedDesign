@@ -63,6 +63,9 @@ public class Controller
      */
     public void registerPayment(float amount)
     {
+        if (amount < 0)
+            return;
+
         purchase.registerPayment(amount);
     }
 
