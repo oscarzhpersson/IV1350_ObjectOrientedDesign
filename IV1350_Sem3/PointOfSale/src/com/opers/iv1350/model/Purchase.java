@@ -150,6 +150,6 @@ public class Purchase
     @Override
     public String toString ()
     {
-        return String.format("Total: %f, Total VAT incl.: %f", calculateTotal(false), calculateTotal(true));
+        return String.format("Total: %.2f, Total VAT incl.: %.2f", calculateTotal(false), calculateTotal(true));
     }
 }
