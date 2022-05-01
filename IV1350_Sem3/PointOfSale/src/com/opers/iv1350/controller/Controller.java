@@ -63,12 +63,6 @@ public class Controller
      */
     public void registerPayment(float amount)
     {
-        if (amount < 0)
-        {
-            System.out.println("Payment is within an invalid numerical range");
-            return;
-        }
-
         purchase.registerPayment(amount);
     }
 
