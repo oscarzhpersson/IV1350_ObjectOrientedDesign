@@ -87,6 +87,14 @@ public class Purchase
     }
 
     /**
+     * Prints the associated receipts of the purchase.
+     */
+    public void printReceipt ()
+    {
+        System.out.println(receipt.toString());
+    }
+
+    /**
      * 
      * Getter function for the total of the purchase including VAT.
      * 
@@ -95,6 +103,39 @@ public class Purchase
     public float getTotal ()
     {
         return calculateTotal(true);
+    }
+
+    /**
+     * 
+     * Getter function for the time of the sale.
+     * 
+     * @return The time of the purchase.
+     */
+    public LocalTime getTimeOfSale ()
+    {
+        return timeOfSale;
+    }
+
+    /**
+     * 
+     * Getter function for the items.
+     * 
+     * @return The items within the purchase.
+     */
+    public ArrayList<ItemDTO> getItems ()
+    {
+        return purchasedItems;
+    }
+
+    /**
+     * 
+     * Getter function for the change of the purchase.
+     * 
+     * @return The change of the purchase.
+     */
+    public float getChange ()
+    {
+        return change;
     }
 
     /**

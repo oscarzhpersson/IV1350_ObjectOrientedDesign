@@ -20,6 +20,8 @@
 
     Do I need to write a wrapper function for the purchase which keeps a balance for the items added instead of just adding them individually? If so, maybe break the existing class out instead.
 
+    Do I need to add a balance to the register? If so, can I just add it to the controller?
+
 
 # Notes:
 
