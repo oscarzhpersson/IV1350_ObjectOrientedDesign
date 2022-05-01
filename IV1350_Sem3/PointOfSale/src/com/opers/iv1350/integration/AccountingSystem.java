@@ -5,6 +5,9 @@ package com.opers.iv1350.integration;
 import java.util.ArrayList;
 import com.opers.iv1350.model.Purchase;
 
+/**
+ * Representation of external accounting system access point.
+ */
 public class AccountingSystem
 {
 

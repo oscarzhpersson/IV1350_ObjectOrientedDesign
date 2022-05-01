@@ -8,6 +8,10 @@ import com.opers.iv1350.dto.ItemDTO;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+/**
+ * Object representing the purchase in a transaction.
+ * Handles all functionality relating to the purchase.
+ */
 public class Purchase
 {
 

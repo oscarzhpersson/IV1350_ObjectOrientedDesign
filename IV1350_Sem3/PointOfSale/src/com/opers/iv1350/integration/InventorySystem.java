@@ -6,6 +6,9 @@ import com.opers.iv1350.dto.ItemDTO;
 
 import java.util.ArrayList;
 
+/**
+ * Representation of external inventory system access point.
+ */
 public class InventorySystem
 {
 

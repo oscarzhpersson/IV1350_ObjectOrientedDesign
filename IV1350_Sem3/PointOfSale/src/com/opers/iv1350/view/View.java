@@ -2,9 +2,11 @@
 package com.opers.iv1350.view;
 
 // Import Declarations.
-import com.opers.iv1350.model.Model;
 import com.opers.iv1350.controller.Controller;
 
+/**
+ * The view class in adherence to the MVC (Model, View, Controller) programming architecture.
+ */
 public class View
 {
 

@@ -7,7 +7,9 @@ import com.opers.iv1350.integration.*;
 import com.opers.iv1350.dto.ItemDTO;
 
 
-
+/**
+ * The controller class in adherence to the MVC (Model, View, Controller) programming architecture.
+ */
 public class Controller
 {
 

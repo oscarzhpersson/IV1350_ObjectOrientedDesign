@@ -1,6 +1,10 @@
 // Package declarations.
 package com.opers.iv1350.dto;
 
+
+/**
+ * DTO for the item object, containing all of its data.
+ */
 public class ItemDTO
 {
 

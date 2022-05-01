@@ -1,6 +1,9 @@
 // Package declarations.
 package com.opers.iv1350.integration;
 
+/**
+ * Representation of printer system access point.
+ */
 public class Printer
 {
 

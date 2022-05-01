@@ -6,6 +6,12 @@ import com.opers.iv1350.model.Purchase;
 import java.util.ArrayList;
 import com.opers.iv1350.dto.ItemDTO;
 
+/**
+ * Object representing the receipt in a transaction.
+ * Handles all functionality relating to the receipt.
+ * 
+ * Serialiseable.
+ */
 public class Receipt
 {
 
