@@ -11,6 +11,9 @@ import com.opers.iv1350.integration.InventorySystem;
 // Static import declarations.
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testinc class for the Purchase class.
+ */
 public class PurchaseTest
 {
     private Purchase purchase;

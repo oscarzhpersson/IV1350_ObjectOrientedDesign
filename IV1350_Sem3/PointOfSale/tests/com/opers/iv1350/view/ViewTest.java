@@ -9,6 +9,9 @@ import java.io.PrintStream;
 // Static import declarations.
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testing class for the View class.
+ */
 public class ViewTest
 {
     
