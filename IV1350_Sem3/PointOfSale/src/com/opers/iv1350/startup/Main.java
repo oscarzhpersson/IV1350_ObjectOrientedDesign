@@ -15,7 +15,7 @@ public class Main {
      * 
      * @param args Command line arguments, should such be included.
      */
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args)
     {
         View view = new View();
     }
