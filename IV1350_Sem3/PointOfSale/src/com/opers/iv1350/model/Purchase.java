@@ -79,6 +79,7 @@ public class Purchase
     /**
      * 
      * Registers a payment of the current open purchase.
+     * Negative change implies insufficient payment.
      * 
      * @param amount The amount which was paid.
      */
@@ -86,7 +87,7 @@ public class Purchase
     {
         float total = getTotal();
 
-        change = total - amount;
+        change = amount - total;
     }
 
     /**
