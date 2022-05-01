@@ -28,6 +28,8 @@ public class ControllerTest
         controller = new Controller();
         printoutBuffer = new ByteArrayOutputStream();
 
+        controller.startSale();
+
         PrintStream inMemSysOut = new PrintStream(printoutBuffer);
         orgSysOut = System.out;
         System.setOut(inMemSysOut);
@@ -50,7 +52,7 @@ public class ControllerTest
     @Test
     public void testEnterItem_ItemExists()
     {
-        controller.enteritem("1", 1);
+        controller.enterItem("1", 1);
         String output = printoutBuffer.toString();
 
         assertTrue(!output.contains("An Error has occurred: Item ID not found."));
@@ -63,7 +65,7 @@ public class ControllerTest
     @Test
     public void testEnterItem_ItemNotExists()
     {
-        controller.enteritem("-1", 1);
+        controller.enterItem("-1", 1);
         String output = printoutBuffer.toString();
 
         assertTrue(output.contains("An Error has occurred: Item ID not found."));

@@ -33,7 +33,7 @@ public class View
         System.out.println("\n\n");
         System.out.print("An item has been scanned");
         System.out.println("\n\n");
-        controller.enteritem("1", 1);
+        controller.enterItem("1", 1);
 
         System.out.println("\n\n");
         System.out.print("A payment has been registered");

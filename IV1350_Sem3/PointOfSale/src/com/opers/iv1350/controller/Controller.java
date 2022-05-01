@@ -80,7 +80,7 @@ public class Controller
      * @param id The ID of the item.
      * @param quantity The quantity of items which are to be entered.
      */
-    public void enteritem(String id, int quantity)
+    public void enterItem(String id, int quantity)
     {
 
         ItemDTO item = inventorySystem.fetchItemData(id);
