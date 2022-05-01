@@ -18,7 +18,13 @@ public class View
     public View ()
     {
         controller = new Controller();
+    }
 
+    /**
+     * Fake execution for demonstration purposes.
+     */
+    public void fakeExecution()
+    {
         System.out.println("\n\n");
         System.out.print("Starts the sale");
         System.out.println("\n\n");
@@ -44,5 +50,4 @@ public class View
         System.out.println("\n\n");
         controller.endSale();
     }
-
 }
