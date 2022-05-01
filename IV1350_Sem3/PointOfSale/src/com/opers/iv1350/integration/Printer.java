@@ -14,6 +14,13 @@ public class Printer
      */
     public void printReceipt(String purchase)
     {
+        
+        if (purchase == null)
+        {
+            System.out.println("The object purchase can not be null");
+            return;
+        }
+
         System.out.println(purchase);
     }
 

@@ -51,6 +51,19 @@ public class Purchase
      */
     public void updatePurchase (ItemDTO item, int quantity)
     {
+
+        if (item == null)
+        {
+            System.out.println("The object item can not be null");
+            return;
+        }
+
+        if (quantity < 0)
+        {
+            System.out.println("The quantity is within an invalid numerical range.");
+            return;
+        }
+
         for (int i = 0; i < quantity; i++)
             purchasedItems.add(item);
 

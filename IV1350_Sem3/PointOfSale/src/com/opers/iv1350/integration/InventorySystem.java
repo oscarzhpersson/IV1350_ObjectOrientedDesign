@@ -80,6 +80,12 @@ public class InventorySystem
      */
     public void updateInventory (String id, int quantity)
     {
+        if (quantity < 0)
+        {
+            System.out.println("The quantity is within an invalid numerical range.");
+            return;
+        }
+
         int index = getItemIndex(id);
 
         if (index == -1) return;

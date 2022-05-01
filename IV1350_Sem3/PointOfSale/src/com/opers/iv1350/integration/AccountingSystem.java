@@ -29,6 +29,13 @@ public class AccountingSystem
      */
     public void logSale (Purchase purchase)
     {
+
+        if (purchase == null)
+        {
+            System.out.println("The object purchase can not be null");
+            return;
+        }
+
         loggedPurchases.add(purchase);
     }
 }
