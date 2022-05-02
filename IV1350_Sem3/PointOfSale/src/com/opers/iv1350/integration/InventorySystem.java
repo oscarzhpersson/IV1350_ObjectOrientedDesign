@@ -22,6 +22,12 @@ public class InventorySystem
         ItemDTO item;
         int balance;
 
+        /**
+         * Constructor for the wrapper object.
+         * 
+         * @param item The item which it should contain.
+         * @param balance The quantity of which should be stored.
+         */
         public itemIndex (ItemDTO item, int balance)
         {
             this.item = item;

@@ -26,6 +26,8 @@ public class Receipt
 
     /**
      * Setter function setting the relevant purchase for this particular receipt object.
+     * 
+     * @param The purchase for which to print a receipt.
      */
     public void setPurchase(Purchase purchase)
     {
