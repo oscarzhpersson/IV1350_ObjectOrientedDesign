@@ -66,7 +66,7 @@ public class AccountingSystemTest
 
         String printOut = printoutBuffer.toString();
         
-        assertTrue(printOut.contains("The object purchase can not be null"));
+        assertTrue(printOut.contains("The object purchase can not be null"), "The logSale function accepted a null input.");
     }
 
 }

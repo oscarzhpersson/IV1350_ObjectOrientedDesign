@@ -55,7 +55,7 @@ public class ControllerTest
         controller.enterItem("1", 1);
         String output = printoutBuffer.toString();
 
-        assertTrue(!output.contains("An Error has occurred: Item ID not found."));
+        assertTrue(!output.contains("An Error has occurred: Item ID not found."), "The enterItem function failed with a valid input. A valid ID was not found.");
     }
 
     /**
@@ -68,7 +68,7 @@ public class ControllerTest
         controller.enterItem("-1", 1);
         String output = printoutBuffer.toString();
 
-        assertTrue(output.contains("An Error has occurred: Item ID not found."));
+        assertTrue(output.contains("An Error has occurred: Item ID not found."), "An item that does not exist was found.");
     }
 
     /**
@@ -80,7 +80,7 @@ public class ControllerTest
     {
         controller.registerPayment(50);
 
-        assertTrue(true);
+        assertTrue(true, "A valid payment for the current purchase failed.");
     }
 
     /**
@@ -93,7 +93,7 @@ public class ControllerTest
         controller.registerPayment(-1);
         String output = printoutBuffer.toString();
 
-        assertTrue(output.contains("Payment is within an invalid numerical range"));
+        assertTrue(output.contains("Payment is within an invalid numerical range"), "An invalid payment passed with an insufficient amount.");
     }
 
     /**

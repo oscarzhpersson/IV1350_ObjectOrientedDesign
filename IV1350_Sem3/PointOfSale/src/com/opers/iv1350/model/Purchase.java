@@ -104,6 +104,12 @@ public class Purchase
             return;
         }
 
+        if (amount < getTotal())
+        {
+            System.out.println("The payment is insufficient");
+            return;
+        }
+
         float total = getTotal();
 
         change = amount - total;
