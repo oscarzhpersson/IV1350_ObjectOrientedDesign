@@ -79,7 +79,7 @@ public class Controller
 
         ItemDTO item = inventorySystem.fetchItemData(id);
 
-        // TODO: Maybe change this error implementation.
+        // TODO: Maybe change this error implementation to exception handling.
         if (item == null)
         {
             System.out.println("An Error has occurred: Item ID not found.");
@@ -88,12 +88,11 @@ public class Controller
 
         inventorySystem.updateInventory(id, quantity);
 
-        // TODO: Check if purchase exists. Otherwise throw an error.
+        // TODO: Check if purchase exists. Otherwise throw an exception.
 
         purchase.updatePurchase(item, quantity);
 
         // Feedback to the view.
-        // TODO: Should this be here?
         System.out.println(item.toString());
         System.out.println(purchase.toString());
     }
