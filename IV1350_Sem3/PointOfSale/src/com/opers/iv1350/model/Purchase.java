@@ -83,7 +83,7 @@ public class Purchase
 
         for (ItemDTO itemDTO : purchasedItems)
         {
-            total += itemDTO.getPrice() + itemDTO.getPrice() * ((itemDTO.getVat() / 100) * (includeVat ? 1 : 0));
+            total += itemDTO.getPrice() + itemDTO.getPrice() * ((itemDTO.getVat() * 0.01) * (includeVat ? 1 : 0));
         }
 
         return total;
