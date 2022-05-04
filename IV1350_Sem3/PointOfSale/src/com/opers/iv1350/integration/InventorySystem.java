@@ -58,7 +58,6 @@ public class InventorySystem
      */
     public InventorySystem ()
     {
-
         ItemDTO item = new ItemDTO("1", "Prolog", 20.0f, 5, "The best programming language in the world");
         inventory.add(new ItemIndex(item, 5));
 
@@ -88,7 +87,6 @@ public class InventorySystem
     {
         if (quantity < 0)
         {
-            System.out.println("The quantity is within an invalid numerical range.");
             return;
         }
 
