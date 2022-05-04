@@ -12,15 +12,15 @@
 
     ______________________________________________________________________________________________________
 
-    Is my wrapper for the item in InventorySystem alright?
+    Is my wrapper for the item in InventorySystem alright? YES
 
-    In InventorySystem, what should updateInventory do if it has an insufficient balance?
+    In InventorySystem, what should updateInventory do if it has an insufficient balance? NO ERROR HANDLING
 
-    How does VAT work? Add answer to Purchase.java toString override.
+    How does VAT work? Add answer to Purchase.java toString override. FINE
 
-    Do I need to write a wrapper function for the purchase which keeps a balance for the items added instead of just adding them individually? If so, maybe break the existing class out instead.
+    Do I need to write a wrapper function for the purchase which keeps a balance for the items added instead of just adding them individually? If so, maybe break the existing class out instead. YES
 
-    Do I need to add a balance to the register? If so, can I just add it to the controller?
+    Do I need to add a balance to the register? If so, can I just add it to the controller? NO
 
     What do I throw if I can't throw exceptions...?
 
