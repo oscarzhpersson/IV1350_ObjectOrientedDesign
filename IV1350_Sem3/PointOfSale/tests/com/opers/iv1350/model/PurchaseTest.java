@@ -30,10 +30,6 @@ public class PurchaseTest
         purchase = new Purchase();
         inventory = new InventorySystem();
         printoutBuffer = new ByteArrayOutputStream();
-
-        PrintStream inMemSysOut = new PrintStream(printoutBuffer);
-        orgSysOut = System.out;
-        System.setOut(inMemSysOut);
     }
 
     /**
@@ -42,15 +38,16 @@ public class PurchaseTest
     @AfterEach
     public void tearDown()
     {
+        purchase = null;
+        inventory = null;
         printoutBuffer = null;
-        System.setOut(orgSysOut);
     }
 
     /**
      * Tests the function which registers a payent function and calculates change, registerPayment(), using a valid payment.
      */
     @Test
-    public void testRegisterPayment_Valid()
+    public void testRegisterPaymentValid()
     {
         ItemDTO item = inventory.fetchItemData("1");
         purchase.updatePurchase(item, 1);
@@ -64,7 +61,7 @@ public class PurchaseTest
      * Tests the function which registers a payment function and calculates change, registerPayment(), using an invalid amount.
      */
     @Test
-    public void testRegisterPayment_Invalid()
+    public void testRegisterPaymentInvalid()
     {
         ItemDTO item = inventory.fetchItemData("1");
 
@@ -78,7 +75,7 @@ public class PurchaseTest
      * Tests the function which registers a payment function and calculates change, registerPayment(), using an insufficient amount.
      */
     @Test
-    public void testRegisterPayment_Insufficient()
+    public void testRegisterPaymentInsufficient()
     {
         ItemDTO item = inventory.fetchItemData("1");
 
@@ -92,23 +89,25 @@ public class PurchaseTest
      * Tests the function updatePurchase() within Purchase with a valid input.
      */
     @Test
-    public void testUpdatePurchase_Valid()
+    public void testUpdatePurchaseValid()
     {
         ItemDTO item = inventory.fetchItemData("1");
+        float itemTotalPrice = item.getPrice() * (1 + item.getVat() * 0.01f);
 
         purchase.updatePurchase(item, 1);
+
+
+        assertTrue(itemTotalPrice == purchase.getTotal(), "The total of the purchase does not correspond to the price of the added item");
     }
 
     /**
      * Tests the function updatePurchase() within Purchase with an invalid input.
      */
     @Test
-    public void testUpdatePurchase_Invalid()
+    public void testUpdatePurchaseInvalid()
     {
         purchase.updatePurchase(null, 1);
-
-        String output = printoutBuffer.toString();
-        assertTrue(output.contains("The object item can not be null"), "The updatePurchase function accepted a null input.");
+        assertTrue(purchase.getTotal() == 0, "The updatePurchase function accepted a null input.");
     }
 
 }
