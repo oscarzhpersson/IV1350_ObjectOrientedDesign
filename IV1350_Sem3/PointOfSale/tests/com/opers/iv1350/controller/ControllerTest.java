@@ -99,7 +99,7 @@ public class ControllerTest
     @Test
     public void testStartSale()
     {
-        assertTrue(controller.getPurchase() != null);
+        assertTrue(controller.getPurchase() != null, "The sale was incorrectly initialised, there is no Purchase object instance.");
     }
 
 }
