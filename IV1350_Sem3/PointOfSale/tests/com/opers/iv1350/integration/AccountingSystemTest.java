@@ -38,7 +38,7 @@ public class AccountingSystemTest
      * Tests the logSale() function with a valid input by logging a purchase, checking if it was logged correctly.
      */
     @Test
-    public void testLogSale_Valid ()
+    public void testLogSaleValid ()
     {
         Purchase purchase = new Purchase();
         InventorySystem inventory = new InventorySystem();
@@ -51,7 +51,7 @@ public class AccountingSystemTest
     }
 
     @Test
-    public void testLogSale_Invalid ()
+    public void testLogSaleInvalid ()
     {
         sys.logSale(null);
         
