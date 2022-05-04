@@ -98,7 +98,7 @@ public class Controller
         purchase.updatePurchase(item, quantity);
 
         // Feedback to the view.
-        System.out.println(item.toString());
+        System.out.println(item.toString() + " x" + quantity);
         System.out.println(purchase.toString());
     }
 }
