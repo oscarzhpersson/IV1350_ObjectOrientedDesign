@@ -5,6 +5,7 @@ package com.opers.iv1350.controller;
 import org.junit.jupiter.api.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import com.opers.iv1350.model.Purchase;
 
 // Static import declarations.
 import static org.junit.jupiter.api.Assertions.*;
@@ -47,15 +48,14 @@ public class ControllerTest
 
     /**
      * Runs test for the enterItem() function.
-     * Tests with an item that exists in the registry.
+     * Tests with a valid input, an item that exists in the registry.
      */
     @Test
-    public void testEnterItem_ItemExists()
+    public void testEnterItemValid()
     {
         controller.enterItem("1", 1);
-        String output = printoutBuffer.toString();
 
-        assertTrue(!output.contains("An Error has occurred: Item ID not found."), "The enterItem function failed with a valid input. A valid ID was not found.");
+        assertTrue(controller.getPurchase().getItems().size() > 0, "The enterItem function failed with a valid input. A valid ID was not found.");
     }
 
     /**
@@ -63,12 +63,12 @@ public class ControllerTest
      * Tests with an item that does not exist in the registry.
      */
     @Test
-    public void testEnterItem_ItemNotExists()
+    public void testEnterItemItemNotExists()
     {
         controller.enterItem("-1", 1);
-        String output = printoutBuffer.toString();
+        int purchaseSize = controller.getPurchase().getItems().size();
 
-        assertTrue(output.contains("An Error has occurred: Item ID not found."), "An item that does not exist was found.");
+        assertFalse(purchaseSize > 0, "An item that does not exist was found and/or added.");
     }
 
     /**
@@ -76,11 +76,17 @@ public class ControllerTest
      * Evaluates to true if nothing else fails. This is only an intermediate call which makes this necessary as exceptions has not been added yet.
      */
     @Test
-    public void testRegisterPayment_Valid()
+    public void testRegisterPaymentValid()
     {
-        controller.registerPayment(50);
+        int payment = 50;
 
-        assertTrue(true, "A valid payment for the current purchase failed.");
+        controller.registerPayment(payment);
+
+        boolean paymentIsSufficient = payment > controller.getPurchase().getTotal();
+
+        float change = controller.getPurchase().getChange();
+
+        assertTrue((change > 0) && paymentIsSufficient, "A valid payment for the current purchase failed.");
     }
 
     /**
@@ -88,21 +94,22 @@ public class ControllerTest
      * Evaluates to true if nothing else fails. This is only an intermediate call which makes this necessary as exceptions has not been added yet.
      */
     @Test
-    public void testRegisterPayment_Invalid()
+    public void testRegisterPaymentInvalid()
     {
         controller.registerPayment(-1);
-        String output = printoutBuffer.toString();
+        
+        float change = controller.getPurchase().getChange();
 
-        assertTrue(output.contains("Payment is within an invalid numerical range"), "An invalid payment passed with an insufficient amount.");
+        assertTrue(Float.compare(change, 0) == 0, "An invalid payment passed with an insufficient/invalid amount." + " " + change);
     }
 
     /**
-     * Runs test for startSale() function.
+     * Runs test for startSale() function. Checks if objects are initialised correctly.
      */
     @Test
     public void testStartSale()
     {
-        controller.startSale();
+        assertTrue(controller.getPurchase() != null);
     }
 
 }

@@ -56,6 +56,15 @@ public class Controller
     }
 
     /**
+     * Getter function for the Purchase object for the current purchase instance.
+     * @return The current purchase instance.
+     */
+    public Purchase getPurchase ()
+    {
+        return purchase;
+    }
+
+    /**
      * 
      * Registers a payment of the current open purchase.
      * 
