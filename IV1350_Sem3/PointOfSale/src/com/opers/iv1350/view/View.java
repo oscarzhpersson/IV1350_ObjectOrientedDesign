@@ -43,7 +43,7 @@ public class View
         System.out.println("\n\n");
         System.out.print("A payment has been registered");
         System.out.println("\n\n");
-        controller.registerPayment(50);
+        controller.registerPayment(100);
 
         System.out.println("\n\n");
         System.out.print("Receipt is printed");
