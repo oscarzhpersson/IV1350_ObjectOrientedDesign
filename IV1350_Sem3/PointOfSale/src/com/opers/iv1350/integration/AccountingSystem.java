@@ -32,7 +32,6 @@ public class AccountingSystem
 
         if (purchase == null)
         {
-            System.out.println("The object purchase can not be null");
             return;
         }
 

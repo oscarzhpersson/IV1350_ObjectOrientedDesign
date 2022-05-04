@@ -54,13 +54,11 @@ public class Purchase
 
         if (item == null)
         {
-            System.out.println("The object item can not be null");
             return;
         }
 
         if (quantity < 0)
         {
-            System.out.println("The quantity is within an invalid numerical range.");
             return;
         }
 

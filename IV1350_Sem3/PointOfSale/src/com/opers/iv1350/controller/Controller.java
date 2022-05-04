@@ -81,7 +81,6 @@ public class Controller
 
         if (item == null)
         {
-            System.out.println("An Error has occurred: Item ID not found.");
             return;
         }
 
