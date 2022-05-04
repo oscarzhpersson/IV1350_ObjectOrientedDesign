@@ -90,7 +90,7 @@ public class ControllerTest
         
         float change = controller.getPurchase().getChange();
 
-        assertTrue(Float.compare(change, 0) == 0, "An invalid payment passed with an insufficient/invalid amount." + " " + change);
+        assertTrue(Float.compare(change, 0) == 0, "An invalid payment passed with an insufficient/invalid amount." + " Input change was: " + change);
     }
 
     /**
