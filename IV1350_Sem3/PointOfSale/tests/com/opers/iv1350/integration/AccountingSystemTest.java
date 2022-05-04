@@ -50,6 +50,9 @@ public class AccountingSystemTest
         assertTrue(sys.accessLogByIndex(0) != null, "The item was not logged when it should have been");
     }
 
+    /**
+     * Tests the logSale() function with an invalid input. This is done by using a null value as a parameter, seeing if the function logs the value.
+     */
     @Test
     public void testLogSaleInvalid ()
     {

@@ -7,6 +7,9 @@ import org.junit.jupiter.api.*;
 // Static import declarations.
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testing class for the InventorySystem class.
+ */
 public class InventorySystemTest
 {
 

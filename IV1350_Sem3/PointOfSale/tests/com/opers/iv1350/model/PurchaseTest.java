@@ -10,7 +10,7 @@ import com.opers.iv1350.integration.InventorySystem;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Testinc class for the Purchase class.
+ * Testing class for the Purchase class.
  */
 public class PurchaseTest
 {
