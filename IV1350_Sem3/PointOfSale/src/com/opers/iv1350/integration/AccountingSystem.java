@@ -22,6 +22,20 @@ public class AccountingSystem
     }
 
     /**
+     * Accesses a logged purchase by its index (ID) within the "database".
+     * 
+     * @param index The ID (index) of the logged purchase.
+     * @return The purchase data from the logs.
+     */
+    public Purchase accessLogByIndex (int index)
+    {
+        if (index >= loggedPurchases.size())
+            return null;
+
+        return loggedPurchases.get(index);
+    }
+
+    /**
      * 
      * Logs the purchase into the accounting system.
      * 

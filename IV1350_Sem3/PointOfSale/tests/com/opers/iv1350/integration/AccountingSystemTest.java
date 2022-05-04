@@ -3,8 +3,6 @@ package com.opers.iv1350.integration;
 
 // Import declarations.
 import org.junit.jupiter.api.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import com.opers.iv1350.model.Purchase;
 
 // Static import declarations.
@@ -17,8 +15,6 @@ public class AccountingSystemTest
 {
 
     private AccountingSystem sys;
-    private PrintStream orgSysOut;
-    private ByteArrayOutputStream printoutBuffer;
     
     /**
      * Sets up a new clean-slate Accounting System before each test.
@@ -27,12 +23,6 @@ public class AccountingSystemTest
     public void setUp ()
     {
         sys = new AccountingSystem();
-
-        printoutBuffer = new ByteArrayOutputStream();
-
-        PrintStream inMemSysOut = new PrintStream(printoutBuffer);
-        orgSysOut = System.out;
-        System.setOut(inMemSysOut);
     }
 
     /**
@@ -41,12 +31,11 @@ public class AccountingSystemTest
     @AfterEach
     public void tearDown()
     {
-        printoutBuffer = null;
-        System.setOut(orgSysOut);
+        sys = null;
     }
 
     /**
-     * Tests the logSale() function with a valid input.
+     * Tests the logSale() function with a valid input by logging a purchase, checking if it was logged correctly.
      */
     @Test
     public void testLogSale_Valid ()
@@ -57,16 +46,16 @@ public class AccountingSystemTest
         purchase.updatePurchase(inventory.fetchItemData("1"), 1);
 
         sys.logSale(purchase);
+
+        assertTrue(sys.accessLogByIndex(0) != null, "The item was not logged when it should have been");
     }
 
     @Test
     public void testLogSale_Invalid ()
     {
         sys.logSale(null);
-
-        String printOut = printoutBuffer.toString();
         
-        assertTrue(printOut.contains("The object purchase can not be null"), "The logSale function accepted a null input.");
+        assertFalse(sys.accessLogByIndex(0) != null, "The logSale function accepted a null input.");
     }
 
 }
