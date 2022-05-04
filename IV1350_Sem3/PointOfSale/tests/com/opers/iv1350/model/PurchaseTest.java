@@ -56,6 +56,8 @@ public class PurchaseTest
         purchase.updatePurchase(item, 1);
 
         purchase.registerPayment(Integer.MAX_VALUE);
+
+        assertTrue(purchase.getChange() > 0, "The returned change should be positive, but is negative.");
     }
 
     /**
