@@ -3,8 +3,6 @@ package com.opers.iv1350.controller;
 
 // Import declarations.
 import org.junit.jupiter.api.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import com.opers.iv1350.model.Purchase;
 
 // Static import declarations.
@@ -17,8 +15,6 @@ public class ControllerTest
 {
 
     private Controller controller;
-    private PrintStream orgSysOut;
-    private ByteArrayOutputStream printoutBuffer;
     
     /**
      * Sets up a new clean-slate controller before each test.
@@ -27,13 +23,8 @@ public class ControllerTest
     public void setUp()
     {
         controller = new Controller();
-        printoutBuffer = new ByteArrayOutputStream();
 
         controller.startSale();
-
-        PrintStream inMemSysOut = new PrintStream(printoutBuffer);
-        orgSysOut = System.out;
-        System.setOut(inMemSysOut);
     }
 
     /**
@@ -42,8 +33,7 @@ public class ControllerTest
     @AfterEach
     public void tearDown()
     {
-        printoutBuffer = null;
-        System.setOut(orgSysOut);
+        controller = null;
     }
 
     /**
