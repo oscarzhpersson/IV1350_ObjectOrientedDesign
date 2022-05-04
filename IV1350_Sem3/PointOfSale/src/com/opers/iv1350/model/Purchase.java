@@ -107,13 +107,11 @@ public class Purchase
     {
         if (amount < 0)
         {
-            System.out.println("Payment is within an invalid numerical range");
             return;
         }
 
         if (amount < getTotal())
         {
-            System.out.println("The payment is insufficient");
             return;
         }
 

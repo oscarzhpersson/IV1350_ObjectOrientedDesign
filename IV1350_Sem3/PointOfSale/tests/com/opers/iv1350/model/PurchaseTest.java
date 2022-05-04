@@ -57,7 +57,7 @@ public class PurchaseTest
 
         purchase.registerPayment(Integer.MAX_VALUE);
 
-        assertTrue(purchase.getChange() > 0, "The returned change should be positive, but is negative.");
+        assertTrue(purchase.getChange() > 0, "The returned change should be positive, but it is negative.");
     }
 
     /**
@@ -71,9 +71,7 @@ public class PurchaseTest
         purchase.updatePurchase(item, 1);
         purchase.registerPayment(-1);
 
-        String output = printoutBuffer.toString();
-
-        assertTrue(output.contains("Payment is within an invalid numerical range"), "The registerpayment function accepted an invalid amount.");
+        assertFalse(Math.abs(purchase.getChange()) > purchase.getTotal(), "The registerpayment function accepted an invalid amount.");
     }
 
     /**
@@ -87,9 +85,7 @@ public class PurchaseTest
         purchase.updatePurchase(item, 1);
         purchase.registerPayment(1);
 
-        String output = printoutBuffer.toString();
-
-        assertTrue(output.contains("The payment is insufficient"), "The registerpayment function accepted an insufficient amount.");
+        assertFalse(purchase.getChange() < 0, "The registerpayment function accepted an insufficient amount.");
     }
 
     /**
