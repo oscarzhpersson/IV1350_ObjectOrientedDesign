@@ -36,6 +36,11 @@ public class View
         controller.enterItem("1", 1);
 
         System.out.println("\n\n");
+        System.out.print("Two of the same items have been scanned");
+        System.out.println("\n\n");
+        controller.enterItem("1", 2);
+
+        System.out.println("\n\n");
         System.out.print("A payment has been registered");
         System.out.println("\n\n");
         controller.registerPayment(50);

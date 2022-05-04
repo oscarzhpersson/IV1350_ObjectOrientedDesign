@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public class InventorySystem
 {
 
-    private ArrayList<itemIndex> inventory = new ArrayList<itemIndex>();
+    private ArrayList<ItemIndex> inventory = new ArrayList<ItemIndex>();
 
     /**
      * Wrapper class for the item, containing the item and its current inventory.
      */
-    private class itemIndex
+    private class ItemIndex
     {
         ItemDTO item;
         int balance;
@@ -28,7 +28,7 @@ public class InventorySystem
          * @param item The item which it should contain.
          * @param balance The quantity of which should be stored.
          */
-        public itemIndex (ItemDTO item, int balance)
+        public ItemIndex (ItemDTO item, int balance)
         {
             this.item = item;
             this.balance = balance;
@@ -60,7 +60,7 @@ public class InventorySystem
     {
 
         ItemDTO item = new ItemDTO("1", "Prolog", 20.0f, 5, "The best programming language in the world");
-        inventory.add(new itemIndex(item, 1));
+        inventory.add(new ItemIndex(item, 5));
 
     }
 
@@ -96,7 +96,6 @@ public class InventorySystem
 
         if (index == -1) return;
 
-        // TODO: Add error handling for when balance is below 0 or is 0. Within first part of ternary.
         inventory.get(index).setBalance( ( inventory.get(index).getBalance() - quantity < 0 ? 0 : inventory.get(index).getBalance() - quantity ) );
     }
 
@@ -107,7 +106,7 @@ public class InventorySystem
      */
     private int getItemIndex (String id)
     {
-        for (itemIndex i : inventory)
+        for (ItemIndex i : inventory)
             if (i.item.getId() == id) return inventory.indexOf(i);
 
         return -1;

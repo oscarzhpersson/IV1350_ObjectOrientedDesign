@@ -4,6 +4,7 @@ package com.opers.iv1350.model;
 // Import declarations.
 import com.opers.iv1350.model.Receipt;
 import com.opers.iv1350.dto.ItemDTO;
+import com.opers.iv1350.dto.ItemIndexDTO;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -14,14 +15,13 @@ import java.util.ArrayList;
  */
 public class Purchase
 {
-
     private Receipt receipt;
 
     // Values.
     private LocalTime timeOfSale;
     private float change;
 
-    private ArrayList<ItemDTO> purchasedItems = new ArrayList<ItemDTO>();
+    private ArrayList<ItemIndexDTO> purchasedItems = new ArrayList<ItemIndexDTO>();
     
     /**
      * Constructor for the Purchase object class.
@@ -64,10 +64,16 @@ public class Purchase
             return;
         }
 
-        for (int i = 0; i < quantity; i++)
-            purchasedItems.add(item);
+        for (ItemIndexDTO itemIndex : purchasedItems)
+        {
+            if (itemIndex.getItem().getId() == item.getId())
+            {
+                itemIndex.setQuantity(itemIndex.getQuantity() + quantity);
+                return;
+            }
+        }
 
-        //TODO: Collect the rest of the information?
+        purchasedItems.add(new ItemIndexDTO(item, quantity));
 
     }
 
@@ -81,9 +87,10 @@ public class Purchase
     {
         float total = 0.0f;
 
-        for (ItemDTO itemDTO : purchasedItems)
+        for (ItemIndexDTO itemIndex: purchasedItems)
         {
-            total += itemDTO.getPrice() + itemDTO.getPrice() * ((itemDTO.getVat() * 0.01) * (includeVat ? 1 : 0));
+            ItemDTO item = itemIndex.getItem();
+            total += (item.getPrice() + item.getPrice() * ((item.getVat() * 0.01) * (includeVat ? 1 : 0))) * itemIndex.getQuantity();
         }
 
         return total;
@@ -152,7 +159,7 @@ public class Purchase
      * 
      * @return The items within the purchase.
      */
-    public ArrayList<ItemDTO> getItems ()
+    public ArrayList<ItemIndexDTO> getItems ()
     {
         return purchasedItems;
     }

@@ -4,6 +4,7 @@ package com.opers.iv1350.model;
 // Import declarations.
 import com.opers.iv1350.model.Purchase;
 import com.opers.iv1350.dto.ItemDTO;
+import com.opers.iv1350.dto.ItemIndexDTO;
 
 /**
  * Object representing the receipt in a transaction.
@@ -43,9 +44,10 @@ public class Receipt
     {
         String items = "";
 
-        for (ItemDTO item : purchaseOfReceipt.getItems())
+        for (ItemIndexDTO itemIndex : purchaseOfReceipt.getItems())
         {
-            items += item.getItemName() + "\n";
+            ItemDTO item = itemIndex.getItem();
+            items += item.getItemName() + " x" + itemIndex.getQuantity() + "\n";
         }
 
         return String.format("*** RECEIPT *** \n\n Time of sale: %s \n Items: \n %s \n Total: €%.2f \n Change: €%.2f", purchaseOfReceipt.getTimeOfSale().toString(), items, purchaseOfReceipt.getTotal(), purchaseOfReceipt.getChange());
