@@ -3,8 +3,6 @@ package com.opers.iv1350.model;
 
 // Import declarations.
 import org.junit.jupiter.api.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import com.opers.iv1350.dto.ItemDTO;
 import com.opers.iv1350.integration.InventorySystem;
 
@@ -18,8 +16,6 @@ public class PurchaseTest
 {
     private Purchase purchase;
     private InventorySystem inventory;
-    private PrintStream orgSysOut;
-    private ByteArrayOutputStream printoutBuffer;
     
     /**
      * Sets up a new clean-slate controller before each test.
@@ -29,7 +25,6 @@ public class PurchaseTest
     {
         purchase = new Purchase();
         inventory = new InventorySystem();
-        printoutBuffer = new ByteArrayOutputStream();
     }
 
     /**
@@ -40,7 +35,6 @@ public class PurchaseTest
     {
         purchase = null;
         inventory = null;
-        printoutBuffer = null;
     }
 
     /**
