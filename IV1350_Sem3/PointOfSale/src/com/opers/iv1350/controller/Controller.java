@@ -5,6 +5,9 @@ package com.opers.iv1350.controller;
 import com.opers.iv1350.model.*;
 import com.opers.iv1350.integration.*;
 import com.opers.iv1350.dto.ItemDTO;
+import com.opers.iv1350.dto.ItemsSummaryDTO;
+
+import java.util.ArrayList;
 
 
 /**
@@ -82,25 +85,28 @@ public class Controller
      * 
      * @param id The ID of the item.
      * @param quantity The quantity of items which are to be entered.
+     * @return A summary DTO containing relevant information for the View.
      */
-    public void enterItem(String id, int quantity)
+    public ItemsSummaryDTO enterItem(String id, int quantity)
     {
 
         ItemDTO item = inventorySystem.fetchItemData(id);
+        ArrayList<ItemDTO> items = new ArrayList<ItemDTO>();
 
         if (item == null)
         {
-            return;
+            return null;
         }
 
         inventorySystem.updateInventory(id, quantity);
 
         purchase.updatePurchase(item, quantity);
 
-        // Feedback to the view.
         for (int i = 0; i < quantity; i++)
-            System.out.println(item.toString());
-        
-        System.out.println(purchase.toString());
+            items.add(item);
+
+        ItemsSummaryDTO summary = new ItemsSummaryDTO(items, quantity, purchase);
+
+        return summary;
     }
 }
