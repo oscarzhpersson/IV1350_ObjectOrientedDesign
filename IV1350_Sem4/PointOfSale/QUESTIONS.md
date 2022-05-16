@@ -1,5 +1,7 @@
 # Questions for the help session:
 
+    What should I do when nothing is to be returned in a function which has thrown an exception?
+
 ## Packages:
 
    
@@ -8,7 +10,11 @@
 # Notes:
 
     
+# TODO:
 
+## Task 1:
+    - Exceptions for alternative flow 3-4a
+    - Exceptions for database connection
 
 
 # Notes during progress:

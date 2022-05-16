@@ -41,6 +41,11 @@ public class View
         System.out.println(controller.enterItem("1", 2).toString());
 
         System.out.println("\n\n");
+        System.out.print("→ A non-existant item has been entered");
+        System.out.println("\n\n");
+        System.out.println(controller.enterItem("NotAnItem", 1).toString());
+
+        System.out.println("\n\n");
         System.out.print("→ A payment has been registered");
         System.out.println("\n\n");
         controller.registerPayment(100);

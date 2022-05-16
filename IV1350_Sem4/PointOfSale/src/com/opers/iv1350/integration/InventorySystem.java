@@ -3,6 +3,7 @@ package com.opers.iv1350.integration;
 
 // Import declarations.
 import com.opers.iv1350.dto.ItemDTO;
+import com.opers.iv1350.integration.NoSuchItemException;
 
 import java.util.ArrayList;
 
@@ -69,11 +70,18 @@ public class InventorySystem
      * 
      * @param id The ID of the item.
      * @return The itemDTO of the corresponding item.
+     * @throws NoSuchItemException if an item corresponding to the id was not found within the catalog.
      */
-    public ItemDTO fetchItemData (String id)
+    public ItemDTO fetchItemData (String id) throws NoSuchItemException
     {
         int index = getItemIndex(id);
-        return index == -1 ? null : inventory.get(index).getItem();
+
+        if (index == -1)
+        {
+            throw new NoSuchItemException(id);
+        }
+
+        return inventory.get(index).getItem();
     }
 
     /**
