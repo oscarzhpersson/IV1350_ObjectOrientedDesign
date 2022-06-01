@@ -3,10 +3,12 @@ package com.opers.iv1350.controller;
 
 // Import Declarations.
 import com.opers.iv1350.model.*;
+import com.opers.iv1350.util.ErrorMessageHandler;
 import com.opers.iv1350.integration.*;
 import com.opers.iv1350.dto.ItemDTO;
 import com.opers.iv1350.dto.ItemsSummaryDTO;
 import com.opers.iv1350.integration.NoSuchItemException;
+import com.opers.iv1350.integration.DatabaseConnectionErrorException;
 
 import java.util.ArrayList;
 
@@ -91,6 +93,11 @@ public class Controller
     public ItemsSummaryDTO enterItem(String id, int quantity)
     {
 
+        /*if (id == "DatabaseConnection")
+        {
+            throw new DatabaseConnectionErrorException();
+        }*/
+
         try
         {
             ItemDTO item = inventorySystem.fetchItemData(id);
@@ -109,7 +116,7 @@ public class Controller
         }
         catch(NoSuchItemException exception)
         {
-            exception.printStackTrace();
+            ErrorMessageHandler.getErrorMessageHandler().showMessage("An item with the id: " + id + " could not be found.");
         }
 
         // TODO: What to do when nothing is to be returned?

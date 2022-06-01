@@ -3,7 +3,7 @@ package com.opers.iv1350.integration;
 /**
  * Exception to be called when an identifier which does not exist within the catalog is passed.
  */
-public class NoSuchItemException extends RuntimeException
+public class NoSuchItemException extends Exception
 {
 
     private String identifier;
