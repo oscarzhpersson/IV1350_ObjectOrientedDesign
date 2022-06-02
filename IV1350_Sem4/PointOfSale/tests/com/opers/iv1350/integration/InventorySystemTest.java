@@ -39,7 +39,15 @@ public class InventorySystemTest
     @Test
     public void fetchItemDataTestValid ()
     {
-        assertTrue(sys.fetchItemData("1") != null, "The item could not be found, even though it should exist.");
+        try
+        {
+            assertTrue(sys.fetchItemData("1") != null, "The item could not be found, even though it should exist.");
+        }
+        catch(NoSuchItemException exception)
+        {
+            // TODO: Add the catch clause for the exception.
+            exception.printStackTrace();
+        }
     }
 
     /**
@@ -48,7 +56,15 @@ public class InventorySystemTest
     @Test
     public void fetchItemDataTestInvalid ()
     {
-        assertFalse(sys.fetchItemData("FEL") != null, "An item was found, even though none should exist.");
+        try
+        {
+            assertFalse(sys.fetchItemData("FEL") != null, "An item was found, even though none should exist.");
+        }
+        catch(NoSuchItemException exception)
+        {
+            // TODO: Add the catch clause for the exception.
+            exception.printStackTrace();
+        }
     }
 
 }

@@ -43,7 +43,15 @@ public class AccountingSystemTest
         Purchase purchase = new Purchase();
         InventorySystem inventory = new InventorySystem();
 
-        purchase.updatePurchase(inventory.fetchItemData("1"), 1);
+        try
+        {
+            purchase.updatePurchase(inventory.fetchItemData("1"), 1);
+        }
+        catch(NoSuchItemException exception)
+        {
+            // TODO: Add the catch clause for the exception.
+            exception.printStackTrace();
+        }
 
         sys.logSale(purchase);
 
