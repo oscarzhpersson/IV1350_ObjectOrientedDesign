@@ -93,6 +93,7 @@ public class Controller
     public ItemsSummaryDTO enterItem(String id, int quantity)
     {
 
+        // TODO
         /*if (id == "DatabaseConnection")
         {
             throw new DatabaseConnectionErrorException();
