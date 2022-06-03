@@ -1,6 +1,8 @@
 // Package declarations.
 package com.opers.iv1350.startup;
 
+import java.io.IOException;
+
 // Import declarations.
 import com.opers.iv1350.view.View;
 
@@ -17,8 +19,16 @@ public class Main {
      */
     public static void main(String[] args)
     {
-        View view = new View();
+        try
+        {
+            View view = new View();
 
-        view.fakeExecution();
+            view.fakeExecution();
+        }
+        catch (IOException exception)
+        {
+            System.out.println("Could not start the application");
+            exception.printStackTrace();
+        }
     }
 }

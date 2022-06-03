@@ -3,13 +3,13 @@ package com.opers.iv1350.controller;
 
 // Import Declarations.
 import com.opers.iv1350.model.*;
-import com.opers.iv1350.util.ErrorMessageHandler;
+import com.opers.iv1350.util.ErrorLogHandler;
 import com.opers.iv1350.integration.*;
 import com.opers.iv1350.dto.ItemDTO;
 import com.opers.iv1350.dto.ItemsSummaryDTO;
 import com.opers.iv1350.integration.NoSuchItemException;
-import com.opers.iv1350.integration.DatabaseConnectionErrorException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -23,6 +23,7 @@ public class Controller
     private InventorySystem inventorySystem;
     private AccountingSystem accountingSystem;
     private Printer printer;
+    private ErrorLogHandler errorLogHandler;
 
     // Reference variables.
     private Purchase purchase;
@@ -30,11 +31,12 @@ public class Controller
     /**
      * Constructor for the Controller object. Sets the initial values.
      */
-    public Controller ()
+    public Controller () throws IOException
     {
-        inventorySystem = new InventorySystem();
-        accountingSystem = new AccountingSystem();
-        printer = new Printer();
+        this.inventorySystem = new InventorySystem();
+        this.accountingSystem = new AccountingSystem();
+        this.printer = new Printer();
+        this.errorLogHandler = new ErrorLogHandler();
     }
 
     /**
@@ -90,15 +92,8 @@ public class Controller
      * @param quantity The quantity of items which are to be entered.
      * @return A summary DTO containing relevant information for the View. If the item is not found, an alibi is returned, null.
      */
-    public ItemsSummaryDTO enterItem(String id, int quantity)
+    public ItemsSummaryDTO enterItem(String id, int quantity) throws OperationFailedException
     {
-
-        // TODO
-        /*if (id == "DatabaseConnection")
-        {
-            throw new DatabaseConnectionErrorException();
-        }*/
-
         try
         {
             ItemDTO item = inventorySystem.fetchItemData(id);
@@ -115,12 +110,14 @@ public class Controller
 
             return summary;
         }
-        catch(NoSuchItemException exception)
+        catch (NoSuchItemException exception)
         {
-            ErrorMessageHandler.getErrorMessageHandler().showMessage("An item with the id: " + id + " could not be found.");
+            throw new OperationFailedException("The scanned item could not be registered.", exception);
         }
-
-        // TODO: What to do when nothing is to be returned?
-        return null;
+        catch (Exception exception)
+        {
+            errorLogHandler.logException(exception);
+            throw new OperationFailedException("The scanned item could not be registered.", exception);
+        }
     }
 }

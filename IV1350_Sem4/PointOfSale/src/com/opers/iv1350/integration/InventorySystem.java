@@ -4,6 +4,7 @@ package com.opers.iv1350.integration;
 // Import declarations.
 import com.opers.iv1350.dto.ItemDTO;
 import com.opers.iv1350.integration.NoSuchItemException;
+import com.opers.iv1350.integration.DatabaseConnectionErrorException;
 
 import java.util.ArrayList;
 
@@ -71,9 +72,14 @@ public class InventorySystem
      * @param id The ID of the item.
      * @return The itemDTO of the corresponding item.
      * @throws NoSuchItemException if an item corresponding to the id was not found within the catalog.
+     * @throws DatabaseConnectionErrorException if the database is not available (hardcoded).
      */
     public ItemDTO fetchItemData (String id) throws NoSuchItemException
     {
+
+        if (id == "DatabaseConnection")
+            throw new DatabaseConnectionErrorException();
+
         int index = getItemIndex(id);
 
         if (index == -1)
