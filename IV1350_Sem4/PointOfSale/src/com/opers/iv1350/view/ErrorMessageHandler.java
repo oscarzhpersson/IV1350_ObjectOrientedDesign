@@ -10,20 +10,7 @@ import java.time.format.FormatStyle;
  * Class representing an object which shows error messages to the user.
  */
 public class ErrorMessageHandler
-{
-
-    private static final ErrorMessageHandler ERROR_MESSAGE_HANDLER = new ErrorMessageHandler();
-
-    private ErrorMessageHandler(){}
-
-    /**
-     * @return Returns the only instance of the error message handler class.
-     */
-    public static ErrorMessageHandler getErrorMessageHandler()
-    {
-        return ERROR_MESSAGE_HANDLER;
-    }
-    
+{   
     /**
      * Displays a composite error message for the user.
      * @param String msg The error message.
