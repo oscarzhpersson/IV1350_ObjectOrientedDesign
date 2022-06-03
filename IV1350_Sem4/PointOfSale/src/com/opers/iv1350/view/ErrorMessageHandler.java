@@ -1,4 +1,4 @@
-package com.opers.iv1350.util;
+package com.opers.iv1350.view;
 
 // Import dependencies.
 import java.lang.StringBuilder;
