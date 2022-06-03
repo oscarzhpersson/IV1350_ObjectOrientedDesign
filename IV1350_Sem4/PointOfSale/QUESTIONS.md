@@ -12,9 +12,13 @@
     
 # TODO:
 
- - Maybe fix Task 1 a). Possibly create an aux function which calls enterItem but is of type void. Or change return to string and return the string only.
+ - Maybe fix Task 1 a). Possibly create an aux function which calls enterItem but is of type void. Or change return to string and return the string only. DONE
  - Write catch() blocks for the tests for the exceptions.
  - Check so that no state changes occur (for NoSuchItemException).
+
+ - Move ErrorMessageHandler to View package. DONE
+
+ - Change ErrorMessageHandler from a singleton.
 
 ## Task 1:
     - Exceptions for alternative flow 3-4a
