@@ -3,7 +3,10 @@ package com.opers.iv1350.controller;
 
 // Import declarations.
 import org.junit.jupiter.api.*;
+
+import com.opers.iv1350.integration.NoSuchItemException;
 import com.opers.iv1350.model.Purchase;
+import java.io.IOException;
 
 // Static import declarations.
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +25,15 @@ public class ControllerTest
     @BeforeEach
     public void setUp()
     {
-        controller = new Controller();
+        try
+        {
+            controller = new Controller();
+        }
+        catch (IOException exception)
+        {
+            System.out.println("The controller could not be instantiated.");
+            exception.printStackTrace();
+        }
 
         controller.startSale();
     }
@@ -43,7 +54,15 @@ public class ControllerTest
     @Test
     public void testEnterItemValid()
     {
-        controller.enterItem("1", 1);
+        try
+        {
+            controller.enterItem("1", 1);
+        }
+        catch (OperationFailedException exception)
+        {
+            fail("An exception was thrown.");
+            exception.printStackTrace();
+        }
 
         assertTrue(controller.getPurchase().getItems().size() > 0, "The enterItem function failed with a valid input. A valid ID was not found.");
     }
@@ -55,10 +74,19 @@ public class ControllerTest
     @Test
     public void testEnterItemItemNotExists()
     {
-        controller.enterItem("-1", 1);
-        int purchaseSize = controller.getPurchase().getItems().size();
+        try
+        {
+            controller.enterItem("-1", 1);
+            fail("An item that does not exist was found and/or added.");
+        }
+        catch (OperationFailedException exception)
+        {
+            assertTrue(exception.getMessage().contains("The scanned item could not be registered"));
 
-        assertFalse(purchaseSize > 0, "An item that does not exist was found and/or added.");
+            int purchaseSize = controller.getPurchase().getItems().size();
+
+            assertFalse(purchaseSize > 0, "An item that does not exist was found and/or added.");
+        }
     }
 
     /**

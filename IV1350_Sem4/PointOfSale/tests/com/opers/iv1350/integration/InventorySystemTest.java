@@ -3,6 +3,7 @@ package com.opers.iv1350.integration;
 
 // Import declarations.
 import org.junit.jupiter.api.*;
+import com.opers.iv1350.dto.ItemDTO;
 
 // Static import declarations.
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,7 +46,7 @@ public class InventorySystemTest
         }
         catch(NoSuchItemException exception)
         {
-            // TODO: Add the catch clause for the exception.
+            fail("An item which should exist was not found.");
             exception.printStackTrace();
         }
     }
@@ -56,14 +57,38 @@ public class InventorySystemTest
     @Test
     public void fetchItemDataTestInvalid ()
     {
+        ItemDTO item = null;
+
         try
         {
-            assertFalse(sys.fetchItemData("FEL") != null, "An item was found, even though none should exist.");
+            item = sys.fetchItemData("FEL");
+            fail("An item with id that should not exist was found in the inventory system.");
         }
         catch(NoSuchItemException exception)
         {
-            // TODO: Add the catch clause for the exception.
-            exception.printStackTrace();
+            assertFalse(item != null, "An item was found, even though none should exist.");
+            assertTrue(exception.getMessage().contains("does not correspond to an existing item"));
+        }
+    }
+
+    /**
+     * Tests the database connection error exception.
+     */
+    @Test
+    public void databaseConnectionTest ()
+    {
+        try
+        {
+            sys.fetchItemData("DatabaseConnection");
+            fail("The component could connect to the non-existing database");
+        }
+        catch (DatabaseConnectionErrorException exception)
+        {
+            assertTrue(exception.getMessage().contains("A connection could not be established to the database"));
+        }
+        catch (NoSuchItemException exception)
+        {
+            fail("The wrong exception was caught. Program should not be able to proceed to this point.");
         }
     }
 

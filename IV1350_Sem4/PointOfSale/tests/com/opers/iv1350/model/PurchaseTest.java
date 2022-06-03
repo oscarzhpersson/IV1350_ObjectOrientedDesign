@@ -55,7 +55,7 @@ public class PurchaseTest
         }
         catch(NoSuchItemException exception)
         {
-            // TODO: Add the catch clause for the exception.
+            fail("An exception was caught during when fetching the item.");
             exception.printStackTrace();
         }
     }
@@ -77,7 +77,7 @@ public class PurchaseTest
         }
         catch(NoSuchItemException exception)
         {
-            // TODO: Add the catch clause for the exception.
+            fail("An exception was caught during when fetching the item.");
             exception.printStackTrace();
         }
     }
@@ -99,7 +99,7 @@ public class PurchaseTest
         }
         catch(NoSuchItemException exception)
         {
-            // TODO: Add the catch clause for the exception.
+            fail("An exception was caught during when fetching the item.");
             exception.printStackTrace();
         }
         
@@ -123,7 +123,7 @@ public class PurchaseTest
         }
         catch(NoSuchItemException exception)
         {
-            // TODO: Add the catch clause for the exception.
+            fail("An exception was caught during when fetching the item.");
             exception.printStackTrace();
         }
     }

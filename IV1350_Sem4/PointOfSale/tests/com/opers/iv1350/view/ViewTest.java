@@ -4,6 +4,7 @@ package com.opers.iv1350.view;
 // Import declarations.
 import org.junit.jupiter.api.*;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 // Static import declarations.
@@ -25,7 +26,16 @@ public class ViewTest
     @BeforeEach
     public void setUp()
     {
-        view = new View();
+        try
+        {
+            view = new View();   
+        }
+        catch (IOException exception)
+        {
+            System.out.println("The view could not be created. An exception was thrown.");
+            exception.printStackTrace();
+        }
+
         printoutBuffer = new ByteArrayOutputStream();
 
         PrintStream inMemSysOut = new PrintStream(printoutBuffer);
