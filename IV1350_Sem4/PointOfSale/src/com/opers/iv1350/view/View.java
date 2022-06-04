@@ -4,6 +4,8 @@ package com.opers.iv1350.view;
 // Import Declarations.
 import com.opers.iv1350.controller.Controller;
 import com.opers.iv1350.controller.OperationFailedException;
+import com.opers.iv1350.util.TotalRevenueFileOutput;
+
 import java.io.IOException;
 import com.opers.iv1350.view.ErrorMessageHandler;
 
@@ -23,6 +25,9 @@ public class View
     {
         controller = new Controller();
         errorMessageHandler = new ErrorMessageHandler();
+
+        controller.addObserver(new TotalRevenueView());
+        controller.addObserver(new TotalRevenueFileOutput());
     }
 
     /**

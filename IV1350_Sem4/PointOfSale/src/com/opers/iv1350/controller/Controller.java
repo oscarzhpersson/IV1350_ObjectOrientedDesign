@@ -27,6 +27,7 @@ public class Controller
 
     // Reference variables.
     private Purchase purchase;
+    private ArrayList<TotalRevenueObserver> totalRevenueObservers = new ArrayList<TotalRevenueObserver>();
 
     /**
      * Constructor for the Controller object. Sets the initial values.
@@ -45,6 +46,11 @@ public class Controller
     public void startSale ()
     {
         purchase = new Purchase();
+
+        for (TotalRevenueObserver observer : totalRevenueObservers)
+        {
+            purchase.addObserver(observer);
+        }
     }
 
     /**
@@ -119,5 +125,14 @@ public class Controller
             errorLogHandler.logException(exception);
             throw new OperationFailedException("The scanned item could not be registered.", exception);
         }
+    }
+
+    /**
+     * The provided observer will be notified of events regarding a change in the total revenue.
+     * @param observer The observer to notify.
+     */
+    public void addObserver (TotalRevenueObserver observer)
+    {
+        totalRevenueObservers.add(observer);
     }
 }

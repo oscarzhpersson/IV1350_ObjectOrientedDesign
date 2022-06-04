@@ -25,8 +25,9 @@ public class TotalRevenueView implements TotalRevenueObserver
     {
         totalIncome += difference;
 
-        System.out.print("___________________________________________________________________");
-        System.out.println(currentTime() + " → The total revenue after the current transaction is: €" + totalIncome);
+        System.out.println("___________________________________________________________________");
+        System.out.println("→ " + currentTime() + " The total revenue after the current transaction is: €" + totalIncome);
+        System.out.println("___________________________________________________________________");
     }
 
     /**

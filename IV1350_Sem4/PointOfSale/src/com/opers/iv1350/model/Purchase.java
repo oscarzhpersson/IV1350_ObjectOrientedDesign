@@ -22,6 +22,7 @@ public class Purchase
     private float change;
 
     private ArrayList<ItemIndexDTO> purchasedItems = new ArrayList<ItemIndexDTO>();
+    private ArrayList<TotalRevenueObserver> totalRevenueObservers = new ArrayList<TotalRevenueObserver>();
     
     /**
      * Constructor for the Purchase object class.
@@ -116,6 +117,8 @@ public class Purchase
         float total = getTotal();
 
         change = amount - total;
+
+        notifyObservers(total);
     }
 
     /**
@@ -169,6 +172,30 @@ public class Purchase
     public float getChange ()
     {
         return change;
+    }
+
+    /**
+     * The provided observer will be notified of events regarding a change in the total revenue.
+     * @param observer The observer to notify.
+     */
+    public void addObserver (TotalRevenueObserver observer)
+    {
+        totalRevenueObservers.add(observer);
+    }
+
+    /**
+     * Notifies the listed observers of an event.
+     * Invokes the function specified within the interface.
+     * 
+     * @param difference The difference in revenue (added or subtracted).
+     * @param totalRevenue The total revenue after the change.
+     */
+    private void notifyObservers (float difference)
+    {
+        for (TotalRevenueObserver observer : totalRevenueObservers)
+        {
+            observer.totalRevenueUpdate(difference);    
+        }
     }
 
     /**

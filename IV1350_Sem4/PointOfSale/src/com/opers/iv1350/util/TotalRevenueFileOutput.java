@@ -32,8 +32,10 @@ public class TotalRevenueFileOutput implements TotalRevenueObserver
     @Override
     public void totalRevenueUpdate(float difference)
     {
+        totalIncome += difference;
+
         StringBuilder logMsgBuilder = new StringBuilder();
-        logMsgBuilder.append(currentTime() + " → The total revenue after the current transaction is: €" + totalIncome);
+        logMsgBuilder.append(currentTime() + " → The total revenue after the current transaction is: €" + totalIncome + '\n');
         logMsgBuilder.append("___________________________________________________________________");
         logger.println(logMsgBuilder);
     }
