@@ -1,4 +1,4 @@
-3 Jun 2022, 22:30:58, Exception was thrown: A connection could not be established to the database. Please contact your system administrator.
+4 Jun 2022, 16:22:46, Exception was thrown: A connection could not be established to the database. Please contact your system administrator.
 com.opers.iv1350.integration.DatabaseConnectionErrorException: A connection could not be established to the database. Please contact your system administrator.
 	at com.opers.iv1350.integration.InventorySystem.fetchItemData(InventorySystem.java:81)
 	at com.opers.iv1350.controller.Controller.enterItem(Controller.java:99)

@@ -20,7 +20,10 @@
 
  - Change ErrorMessageHandler from a singleton. DONE
 
- - Test logger and error message components.
+ - Test logger and error message components. DONE
+
+ - Add notifyObserver() function to purchase class within registerPayment
+ - Add an actual total revenue tally to the application.
 
 ## Task 1:
     - Exceptions for alternative flow 3-4a
