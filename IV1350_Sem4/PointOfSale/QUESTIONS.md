@@ -22,8 +22,11 @@
 
  - Test logger and error message components. DONE
 
- - Add notifyObserver() function to purchase class within registerPayment
- - Add an actual total revenue tally to the application.
+ - Add notifyObserver() function to purchase class within registerPayment DONE
+ - Add an actual total revenue tally to the application. DONE
+
+ - Fix the problem where nothing is printed as of yet. Problem is between controller and purchase, where the observers are not passed. DONE
+ - The printed value is still 0. DONE
 
 ## Task 1:
     - Exceptions for alternative flow 3-4a
