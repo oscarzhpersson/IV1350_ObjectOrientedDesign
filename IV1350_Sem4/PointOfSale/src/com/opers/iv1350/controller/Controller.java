@@ -97,6 +97,7 @@ public class Controller
      * @param id The ID of the item.
      * @param quantity The quantity of items which are to be entered.
      * @return A summary DTO containing relevant information for the View. If the item is not found, an alibi is returned, null.
+     * @throws OperationFailedException If an operation within the called classes could not be completed.
      */
     public ItemsSummaryDTO enterItem(String id, int quantity) throws OperationFailedException
     {
